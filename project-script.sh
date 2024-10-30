@@ -1,21 +1,28 @@
 #!/bin/bash
 
-# Generate a random number between 50 and 100
-random_number=$((RANDOM % 51 + 50))
+# All our Varriables
+#Top Temperatures varrying between 21 - 27oC
+London_top=$((RANDOM % 8 + 20))
+Manchester_top=$((RANDOM % 8 + 20))
+Birmingham_top=$((RANDOM % 8 + 20))
+Newcastle_top=$((RANDOM % 8 + 20))
+Liverpool_top=$((RANDOM % 8 + 20))
+Nottingham_top=$((RANDOM % 8 + 20))
 
-# Get the current date and time in the desired format
-current_time=$(date +'%d/%m/%Y %H:%M:%S')
+#Low Temperatures varrying between 16 - 21oC
+London_low=$((RANDOM % 7 + 15))
+Manchester_low=$((RANDOM % 7 + 15))
+Birmingham_low=$((RANDOM % 7 + 15))
+Newcastle_low=$((RANDOM % 7 + 15))
+Liverpool_low=$((RANDOM % 7 + 15))
+Nottingham_low=$((RANDOM % 7 + 15))
 
-# Get the current hour and date for folder naming
-current_hour=$(date +'%Y%m%d_%H')  # Format: YYYYMMDD_HH
-output_directory="output_$current_hour"
+#UK Temperatures (average)
+total_top_temp=$((London_top + Manchester_top + Birmigham_top + Newcastle_top + Liverpool_top + Nottingham_top))
+total_low_temp=$((London_low + Manchester_low + Birmigham_low + Newcastle_low + Liverpool_low + Nottingham_low))
+uk_top_temp=$((total_top_temp / 6))
+uk_low_temp=$((total_low_temp / 6))
+echo "$uk_top_temp "
+echo "$uk_low_temp "
 
-# Create the directory if it doesn't exist
-mkdir -p "$output_directory"
-
-# Create a filename based on the current date and time
-filename="$output_directory/random_output_$(date +'%d_%m_%Y_%H_%M_%S').txt"
-
-# Print the time and random number to the file
-echo "Time: $current_time, Random Number: $random_number" > "$filename"
 
