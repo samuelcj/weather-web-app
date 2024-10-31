@@ -44,11 +44,11 @@ current_hour=$(date +'%d%m%Y_%H')
 file_directory="$current_hour"
 
 # Create the weather forcast directory if it doesn't exist
-mkdir -p "weather_data"
-mkdir -p "./weather_data/$file_directory"
+mkdir -p "/home/samuelcj/DevOpsWorld/project-web/weather_data"
+mkdir -p "/home/samuelcj/DevOpsWorld/project-web/weather_data/$file_directory"
 
 # Create a filename based on the current date and time
-weather_forecast="./weather_data/$file_directory/$(date +'%d_%m_%Y_%H_%M_%S')_weather_forecast.txt"
+weather_forecast="/home/samuelcj/DevOpsWorld/project-web/weather_data/$file_directory/$(date +'%d_%m_%Y_%H_%M')_weather_forecast.txt"
 
 # Send the output of all the recorded weather forcast to the file for data keeping.
 cat <<EOL > "$weather_forecast"
@@ -63,35 +63,35 @@ For Nottingham the High Temperature was $Nottingham_top oC and the Low Temperatu
 EOL
 
 # Updating the weather forecast website when the values .
-sed -i "69s|<div changesclass=\"day\">.*|<div class=\"day\">$day</div>|" ./web/index.html
-sed -i "70s|<div class=\"date\">.*|<div class=\"date\">$date_month</div>|" ./web/index.html
-sed -i "75s|<div class=\"num\">.*|<div class=\"num\">$uk_top_temp<sup>o</sup>C</div>|" ./web/index.html
+sed -i "69s|<div changesclass=\"day\">.*|<div class=\"day\">$day</div>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "70s|<div class=\"date\">.*|<div class=\"date\">$date_month</div>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "75s|<div class=\"num\">.*|<div class=\"num\">$uk_top_temp<sup>o</sup>C</div>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
 
-sed -i "80s|<span><img src=\"images/icon-umberella.png\" alt=\"\">.*|<span><img src=\"images/icon-umberella.png\" alt=\"\">$uk_low_temp%</span>|" ./web/index.html
-sed -i "81s|<span><img src=\"images/icon-wind.png\" alt=\"\">.*|<span><img src=\"images/icon-wind.png\" alt=\"\">$speed km/h</span>|" ./web/index.html
-sed -i "82s|<span><img src=\"images/icon-compass.png\" alt=\"\">.*|<span><img src=\"images/icon-compass.png\" alt=\"\">$direction</span>|" ./web/index.html
+sed -i "80s|<span><img src=\"images/icon-umberella.png\" alt=\"\">.*|<span><img src=\"images/icon-umberella.png\" alt=\"\">$uk_low_temp%</span>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "81s|<span><img src=\"images/icon-wind.png\" alt=\"\">.*|<span><img src=\"images/icon-wind.png\" alt=\"\">$speed km/h</span>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "82s|<span><img src=\"images/icon-compass.png\" alt=\"\">.*|<span><img src=\"images/icon-compass.png\" alt=\"\">$direction</span>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
 
-sed -i "93s|<div class=\"degree\">.*|<div class=\"degree\">$London_top<sup>o</sup>C</div>|" ./web/index.html
-sed -i "94s|<small>.*|<small>$London_low<sup>o</sup></small>|" ./web/index.html
-sed -i "105s|<div class=\"degree\">.*|<div class=\"degree\">$Manchester_top<sup>o</sup>C</div>|" ./web/index.html
-sed -i "106s|<small>.*|<small>$Manchester_low<sup>o</sup></small>|" ./web/index.html
-sed -i "117s|<div class=\"degree\">.*|<div class=\"degree\">$Birmingham_top<sup>o</sup>C</div>|" ./web/index.html
-sed -i "118s|<small>.*|<small>$Birmingham_low<sup>o</sup></small>|" ./web/index.html
-sed -i "129s|<div class=\"degree\">.*|<div class=\"degree\">$Newcastle_top<sup>o</sup>C</div>|" ./web/index.html
-sed -i "130s|<small>.*|<small>$Newcastle_low<sup>o</sup></small>|" ./web/index.html
-sed -i "141s|<div class=\"degree\">.*|<div class=\"degree\">$Liverpool_top<sup>o</sup>C</div>|" ./web/index.html
-sed -i "142s|<small>.*|<small>$Liverpool_low<sup>o</sup></small>|" ./web/index.html
-sed -i "153s|<div class=\"degree\">.*|<div class=\"degree\">$Nottingham_top<sup>o</sup>C</div>|" ./web/index.html
-sed -i "154s|<small>.*|<small>$Nottingham_low<sup>o</sup></small>|" ./web/index.html
+sed -i "93s|<div class=\"degree\">.*|<div class=\"degree\">$London_top<sup>o</sup>C</div>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "94s|<small>.*|<small>$London_low<sup>o</sup></small>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "105s|<div class=\"degree\">.*|<div class=\"degree\">$Manchester_top<sup>o</sup>C</div>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "106s|<small>.*|<small>$Manchester_low<sup>o</sup></small>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "117s|<div class=\"degree\">.*|<div class=\"degree\">$Birmingham_top<sup>o</sup>C</div>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "118s|<small>.*|<small>$Birmingham_low<sup>o</sup></small>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "129s|<div class=\"degree\">.*|<div class=\"degree\">$Newcastle_top<sup>o</sup>C</div>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "130s|<small>.*|<small>$Newcastle_low<sup>o</sup></small>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "141s|<div class=\"degree\">.*|<div class=\"degree\">$Liverpool_top<sup>o</sup>C</div>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "142s|<small>.*|<small>$Liverpool_low<sup>o</sup></small>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "153s|<div class=\"degree\">.*|<div class=\"degree\">$Nottingham_top<sup>o</sup>C</div>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "154s|<small>.*|<small>$Nottingham_low<sup>o</sup></small>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
 
-sed -i "169s|<small class=\"date\">.*|<small class=\"date\">$date_month, $time$ampm</small>|" ./web/index.html
-sed -i "176s|<small class=\"date\">.*|<small class=\"date\">$date_month, $time$ampm</small>|" ./web/index.html
-sed -i "183s|<small class=\"date\">.*|<small class=\"date\">$date_month, $time$ampm</small>|" ./web/index.html
-sed -i "190s|<small class=\"date\">.*|<small class=\"date\">$date_month, $time$ampm</small>|" ./web/index.html
+sed -i "169s|<small class=\"date\">.*|<small class=\"date\">$date_month, $time$ampm</small>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "176s|<small class=\"date\">.*|<small class=\"date\">$date_month, $time$ampm</small>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "183s|<small class=\"date\">.*|<small class=\"date\">$date_month, $time$ampm</small>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "190s|<small class=\"date\">.*|<small class=\"date\">$date_month, $time$ampm</small>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
 
-sed -i "202s|<div class=\"date\">.*|<div class=\"date\">$time</div>|" ./web/index.html
-sed -i "209s|<div class=\"date\">.*|<div class=\"date\">$time</div>|" ./web/index.html
-sed -i "216s|<div class=\"date\">.*|<div class=\"date\">$time</div>|" ./web/index.html
+sed -i "202s|<div class=\"date\">.*|<div class=\"date\">$time</div>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "209s|<div class=\"date\">.*|<div class=\"date\">$time</div>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
+sed -i "216s|<div class=\"date\">.*|<div class=\"date\">$time</div>|" /home/samuelcj/DevOpsWorld/project-web/web/index.html
 
 
 
