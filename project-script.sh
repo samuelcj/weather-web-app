@@ -62,10 +62,15 @@ For Liverpool the High Temperature was $Liverpool_top oC and the Low Temperature
 For Nottingham the High Temperature was $Nottingham_top oC and the Low Temperature was $Nottingham_low oC.
 EOL
 
-# Updating the weather forecast website when the values changes.
-sed -i "69s|<div class=\"day\">.*|<div class=\"day\">$day</div>|" ./web/index.html
+# Updating the weather forecast website when the values .
+sed -i "69s|<div changesclass=\"day\">.*|<div class=\"day\">$day</div>|" ./web/index.html
 sed -i "70s|<div class=\"date\">.*|<div class=\"date\">$date_month</div>|" ./web/index.html
 sed -i "75s|<div class=\"num\">.*|<div class=\"num\">$uk_top_temp<sup>o</sup>C</div>|" ./web/index.html
+
+sed -i "80s|<span><img src=\"images/icon-umberella.png\" alt=\"\">.*|<span><img src=\"images/icon-umberella.png\" alt=\"\">$uk_low_temp%</span>|" ./web/index.html
+sed -i "81s|<span><img src=\"images/icon-wind.png\" alt=\"\">.*|<span><img src=\"images/icon-wind.png\" alt=\"\">$speed km/h</span>|" ./web/index.html
+sed -i "82s|<span><img src=\"images/icon-compass.png\" alt=\"\">.*|<span><img src=\"images/icon-compass.png\" alt=\"\">$direction</span>|" ./web/index.html
+
 sed -i "93s|<div class=\"degree\">.*|<div class=\"degree\">$London_top<sup>o</sup>C</div>|" ./web/index.html
 sed -i "94s|<small>.*|<small>$London_low<sup>o</sup></small>|" ./web/index.html
 sed -i "105s|<div class=\"degree\">.*|<div class=\"degree\">$Manchester_top<sup>o</sup>C</div>|" ./web/index.html
@@ -78,4 +83,14 @@ sed -i "141s|<div class=\"degree\">.*|<div class=\"degree\">$Liverpool_top<sup>o
 sed -i "142s|<small>.*|<small>$Liverpool_low<sup>o</sup></small>|" ./web/index.html
 sed -i "153s|<div class=\"degree\">.*|<div class=\"degree\">$Nottingham_top<sup>o</sup>C</div>|" ./web/index.html
 sed -i "154s|<small>.*|<small>$Nottingham_low<sup>o</sup></small>|" ./web/index.html
+
+sed -i "169s|<small class=\"date\">.*|<small class=\"date\">$date_month, $time$ampm</small>|" ./web/index.html
+sed -i "176s|<small class=\"date\">.*|<small class=\"date\">$date_month, $time$ampm</small>|" ./web/index.html
+sed -i "183s|<small class=\"date\">.*|<small class=\"date\">$date_month, $time$ampm</small>|" ./web/index.html
+sed -i "190s|<small class=\"date\">.*|<small class=\"date\">$date_month, $time$ampm</small>|" ./web/index.html
+
+sed -i "202s|<div class=\"date\">.*|<div class=\"date\">$time</div>|" ./web/index.html
+sed -i "209s|<div class=\"date\">.*|<div class=\"date\">$time</div>|" ./web/index.html
+sed -i "216s|<div class=\"date\">.*|<div class=\"date\">$time</div>|" ./web/index.html
+
 
