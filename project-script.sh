@@ -62,5 +62,20 @@ For Liverpool the High Temperature was $Liverpool_top oC and the Low Temperature
 For Nottingham the High Temperature was $Nottingham_top oC and the Low Temperature was $Nottingham_low oC.
 EOL
 
-echo "Weather data has been written to '$(date +'%d_%m_%Y_%H_%M_%S')_weather_forecast.txt file'."
+# Updating the weather forecast website when the values changes.
+sed -i "69s|<div class=\"day\">.*|<div class=\"day\">$day</div>|" ./web/index.html
+sed -i "70s|<div class=\"date\">.*|<div class=\"date\">$date_month</div>|" ./web/index.html
+sed -i "75s|<div class=\"num\">.*|<div class=\"num\">$uk_top_temp<sup>o</sup>C</div>|" ./web/index.html
+sed -i "93s|<div class=\"degree\">.*|<div class=\"degree\">$London_top<sup>o</sup>C</div>|" ./web/index.html
+sed -i "94s|<small>.*|<small>$London_low<sup>o</sup></small>|" ./web/index.html
+sed -i "105s|<div class=\"degree\">.*|<div class=\"degree\">$Manchester_top<sup>o</sup>C</div>|" ./web/index.html
+sed -i "106s|<small>.*|<small>$Manchester_low<sup>o</sup></small>|" ./web/index.html
+sed -i "117s|<div class=\"degree\">.*|<div class=\"degree\">$Birmingham_top<sup>o</sup>C</div>|" ./web/index.html
+sed -i "118s|<small>.*|<small>$Birmingham_low<sup>o</sup></small>|" ./web/index.html
+sed -i "129s|<div class=\"degree\">.*|<div class=\"degree\">$Newcastle_top<sup>o</sup>C</div>|" ./web/index.html
+sed -i "130s|<small>.*|<small>$Newcastle_low<sup>o</sup></small>|" ./web/index.html
+sed -i "141s|<div class=\"degree\">.*|<div class=\"degree\">$Liverpool_top<sup>o</sup>C</div>|" ./web/index.html
+sed -i "142s|<small>.*|<small>$Liverpool_low<sup>o</sup></small>|" ./web/index.html
+sed -i "153s|<div class=\"degree\">.*|<div class=\"degree\">$Nottingham_top<sup>o</sup>C</div>|" ./web/index.html
+sed -i "154s|<small>.*|<small>$Nottingham_low<sup>o</sup></small>|" ./web/index.html
 
