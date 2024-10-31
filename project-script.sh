@@ -18,8 +18,8 @@ Liverpool_low=$((RANDOM % 7 + 15))
 Nottingham_low=$((RANDOM % 7 + 15))
 
 #UK Temperatures (average)
-total_top_temp=$((London_top + Manchester_top + Birmigham_top + Newcastle_top + Liverpool_top + Nottingham_top))
-total_low_temp=$((London_low + Manchester_low + Birmigham_low + Newcastle_low + Liverpool_low + Nottingham_low))
+total_top_temp=$((London_top + Manchester_top + Birmingham_top + Newcastle_top + Liverpool_top + Nottingham_top))
+total_low_temp=$((London_low + Manchester_low + Birmingham_low + Newcastle_low + Liverpool_low + Nottingham_low))
 uk_top_temp=$((total_top_temp / 6))
 uk_low_temp=$((total_low_temp / 6))
 
@@ -40,7 +40,7 @@ ampm=$(date +%p)
 current_time=$(date +'%d/%m/%Y %H:%M:%S')
 
 # Get the current hour and date for folder naming
-current_hour=$(date +'%Y%m%d_%H') 
+current_hour=$(date +'%d%m%Y_%H') 
 file_directory="$current_hour"
 
 # Create the weather forcast directory if it doesn't exist
@@ -92,5 +92,7 @@ sed -i "190s|<small class=\"date\">.*|<small class=\"date\">$date_month, $time$a
 sed -i "202s|<div class=\"date\">.*|<div class=\"date\">$time</div>|" ./web/index.html
 sed -i "209s|<div class=\"date\">.*|<div class=\"date\">$time</div>|" ./web/index.html
 sed -i "216s|<div class=\"date\">.*|<div class=\"date\">$time</div>|" ./web/index.html
+
+
 
 
