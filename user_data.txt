@@ -1,0 +1,10 @@
+#!/bin/bash
+# Use this for your user data (script from top to bottom)
+# install httpd (Linux 2 version)
+sudo yum update -y
+sudo yum install -y httpd
+sudo yum install -y unzip
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1gVGjjT8eBXI5gXZclHXMcSrKiGDY49sA' -O /var/www/html/project.zip
+sudo unzip /var/www/html/project.zip -d /var/www/html
