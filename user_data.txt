@@ -6,5 +6,14 @@ sudo yum install -y httpd
 sudo yum install -y unzip
 sudo systemctl start httpd
 sudo systemctl enable httpd
-sudo wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1gVGjjT8eBXI5gXZclHXMcSrKiGDY49sA' -O /var/www/html/project.zip
-sudo unzip /var/www/html/project.zip -d /var/www/html
+sudo yum install cronie -y
+sudo systemctl enable crond.service
+sudo systemctl start crond.service
+sudo wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=19t0bI3ug22cPocHYX-H-SzC2uBglBdj8' -O /var/www/html/project.zip
+sudo unzip -o /var/www/html/project.zip -d /var/www/html
+sudo chmod +x /var/www/html/script.sh
+sudo chmod +x /var/www/html/backup.sh
+(crontab -l 2>/dev/null; echo "* * * * * /var/www/html/script.sh") | crontab -
+(crontab -l 2>/dev/null; echo "*/30 * * * * /var/www/html/backup.sh") | crontab -
+sudo /var/www/html/backup.sh
+
